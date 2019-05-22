@@ -21,8 +21,8 @@ export default class CallHandler {
 
     init() {
 
-        // var ws_server_port = (process.env.PORT || 4442);
-        var ws_server_port = 4442;
+        var ws_server_port = (process.env.PORT || 4442);
+        // var ws_server_port = 4442;
         this.server = http.createServer(app).listen(ws_server_port, () => {
             console.log("Start WS Server: bind => ws://0.0.0.0:"+ws_server_port);
         });
@@ -36,8 +36,8 @@ export default class CallHandler {
             cert: fs.readFileSync('certs/cert.pem')
         };
 
-        // var wss_server_port = (process.env.PORT + 1 || 4443);
-        var wss_server_port = 4443;
+        var wss_server_port = (process.env.PORT + 1 || 4443);
+        // var wss_server_port = 4443;
         this.ssl_server = https.createServer(options, app).listen(wss_server_port, () => {
             console.log("Start WSS Server: bind => wss://0.0.0.0:"+wss_server_port);
         });
