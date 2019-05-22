@@ -31,19 +31,19 @@ export default class CallHandler {
         this.ws.on('connection', this.onConnection);
 
 
-        var options = {
-            key: fs.readFileSync('certs/key.pem'),
-            cert: fs.readFileSync('certs/cert.pem')
-        };
+//         var options = {
+//             key: fs.readFileSync('certs/key.pem'),
+//             cert: fs.readFileSync('certs/cert.pem')
+//         };
 
-        var wss_server_port = (process.env.PORT + 1 || 4443);
-        // var wss_server_port = 4443;
-        this.ssl_server = https.createServer(options, app).listen(wss_server_port, () => {
-            console.log("Start WSS Server: bind => wss://0.0.0.0:"+wss_server_port);
-        });
+//         var wss_server_port = (process.env.PORT + 1 || 4443);
+//         // var wss_server_port = 4443;
+//         this.ssl_server = https.createServer(options, app).listen(wss_server_port, () => {
+//             console.log("Start WSS Server: bind => wss://0.0.0.0:"+wss_server_port);
+//         });
 
-        this.wss = new ws.Server({ server: this.ssl_server });
-        this.wss.on('connection', this.onConnection);
+//         this.wss = new ws.Server({ server: this.ssl_server });
+//         this.wss.on('connection', this.onConnection);
     }
 
     updatePeers = () => {
